@@ -7,7 +7,7 @@ Library Book Management App
 Usage for Local :- 
 
 1. git clone https://github.com/AbbasGawali/ManagementLibraryAppRedux
-2. cd "<folder Name>"
+2. cd "folderName"
 3. npm run dev
 
 
