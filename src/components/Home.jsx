@@ -21,15 +21,15 @@ const Home = () => {
   const popularBooks = booksData.filter((item) => item.rating >= 4.7);
 
   return (
-    <div className="py-4 px-8">
+    <div className="px-3 xs:px-8 ">
       <h1 className="font-bold text-lg">Welcome User</h1>
       <h2 className="py-4">Book Categories :- </h2>
-      <div className="categories flex gap-4">
+      <div className="categories xs:flex gap-4  flex-wrap">
         {categories.map((item, index) => (
           <Link
             key={index}
             to={`/books/${item}`}
-            className="border rounded-full shadow-md px-4 py-[3px] cursor-pointer"
+            className="border rounded-full block my-4 xs:my-0 shadow-md px-4 py-[3px] cursor-pointer"
           >
             {item}
           </Link>

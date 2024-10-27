@@ -2,7 +2,6 @@ import React from "react";
 
 const Rating = ({ rating }) => {
   const stars = [];
-  console.log(stars);
   for (let i = 0; i < 5; i++) {
     if (i < rating) {
       stars.push("★");
@@ -10,9 +9,7 @@ const Rating = ({ rating }) => {
       stars.push("☆");
     }
   }
-  //   .from({ length: 5 }, (item, index) =>
-  //     index < rating ? "★" : "☆"
-  //   );
+
   return (
     <div>
       {stars.map((item, index) => (

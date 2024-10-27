@@ -8,11 +8,9 @@ const BookByCategory = () => {
   const filteredBooks = booksData.filter(
     (item) => item.genre == params.categories
   );
-  console.log(params.categories);
-  console.log(filteredBooks);
-
+  
   return (
-    <div className="px-8 py-4">
+    <div className="px-3 xs:px-8  py-4">
       <Link
         to={`/browseBooks`}
         className="border flex gap-2 items-center w-[12rem] my-2 rounded-full shadow-md px-4 py-[3px] cursor-pointer"

@@ -7,7 +7,7 @@ const BrowseBooks = () => {
   const [books, setBooks] = useState(booksData);
   const [filterBasedOn, setFilterToggle] = useState("title");
   const [search, setSearch] = useState("");
-  console.log("booksData", booksData);
+ 
   const handleChange = (e) => {
     setSearch(e.target.value);
 
@@ -18,28 +18,30 @@ const BrowseBooks = () => {
     );
   };
   return (
-    <div className="py-4 px-8">
-      <div className="flex gap-4 items-center">
-        <div className=" flex gap-2 ">
-          <input
-            id="radioTitle"
-            type="radio"
-            name="filterBasedOn"
-            onChange={() => setFilterToggle("title")}
-            value={"title"}
-            defaultChecked
-          />
-          <label htmlFor="radioTitle">Title</label>
-        </div>
-        <div className=" flex gap-2 ">
-          <input
-            id="radioAuthor"
-            type="radio"
-            name="filterBasedOn"
-            onChange={() => setFilterToggle("author")}
-            value={"author"}
-          />
-          <label htmlFor="radioAuthor">Author</label>
+    <div className="py-4 px-3 xs:px-8 ">
+      <div className="flex gap-4 items-start ms:items-center flex-col  ms:flex-row">
+        <div className="flex gap-2">
+          <div className=" flex gap-2 ">
+            <input
+              id="radioTitle"
+              type="radio"
+              name="filterBasedOn"
+              onChange={() => setFilterToggle("title")}
+              value={"title"}
+              defaultChecked
+            />
+            <label htmlFor="radioTitle">Title</label>
+          </div>
+          <div className=" flex gap-2 ">
+            <input
+              id="radioAuthor"
+              type="radio"
+              name="filterBasedOn"
+              onChange={() => setFilterToggle("author")}
+              value={"author"}
+            />
+            <label htmlFor="radioAuthor">Author</label>
+          </div>
         </div>
         <input
           type="text"

@@ -3,6 +3,7 @@ import { IoArrowBackSharp } from "react-icons/io5";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { addItem } from "../utils/bookSlice";
+import toast from "react-hot-toast";
 const AddBook = () => {
   const [formData, setFormData] = useState({
     title: "",
@@ -31,13 +32,11 @@ const AddBook = () => {
       formData.rating == "" ||
       formData.publishedDate == ""
     ) {
-      alert("all fields required");
+      toast.error("all fields required");
     } else {
       let data = { ...formData, id: Date.now() };
       dispatch(addItem(data));
-      console.log(formData);
-      console.log("formData added ");
-      console.log("formData is full with id", data);
+      toast.success("Book Added");
     }
   };
 
@@ -50,7 +49,7 @@ const AddBook = () => {
   };
 
   return (
-    <div className="px-8 py-4">
+    <div className="px-3 xs:px-8  py-4">
       <Link
         to={`/browseBooks`}
         className="border flex gap-2 items-center w-[12rem] my-2 rounded-full shadow-md px-4 py-[3px] cursor-pointer"
@@ -66,7 +65,7 @@ const AddBook = () => {
 
       <form
         onSubmit={handleFormSubmit}
-        className=" border  border-slate-200 shadow-lg w-2/3 p-6 outline-none mx-auto flex flex-col gap-4"
+        className=" border  border-slate-200 shadow-lg  w-[90%] sm:w-2/3 p-4 xs:p-6 outline-none mx-auto flex flex-col gap-4"
       >
         <h2 className="font-bold text-xl">Book Details</h2>
         <input
@@ -107,39 +106,43 @@ const AddBook = () => {
           placeholder="Book Cover Image URL"
         />
 
-        <div className="flex justify-between">
-          <input
-            name="pages"
-            onChange={handleChange}
-            className="border w-[7rem] mr-2 focus:outline-none px-4 py-1 shadow-md"
-            type="number"
-            placeholder="Pages"
-          />
-          <input
-            name="price"
-            onChange={handleChange}
-            className="border mx-2 focus:outline-none px-4 py-1 shadow-md"
-            type="number"
-            placeholder="Book Price"
-          />
-          <input
-            name="rating"
-            onChange={handleChange}
-            max={5}
-            className="border mx-2 focus:outline-none px-4 py-1 shadow-md"
-            type="number"
-            placeholder="Book Rating"
-          />
-          <div className="flex gap-4 items-center">
-            <label htmlFor="publishedDate">Published Date : </label>
+        <div className="flex  xxl:flex-row flex-col gap-4  justify-between">
+          <div className="flex flex-col md:flex-row gap-4">
             <input
-              name="publishedDate"
+              name="pages"
               onChange={handleChange}
-              className="border focus:outline-none px-4 py-1 shadow-md"
-              id="publishedDate"
-              type="date"
-              placeholder="Published Date"
+              className="border w-[7rem] mr-2 focus:outline-none px-4 py-1 shadow-md"
+              type="number"
+              placeholder="Pages"
             />
+            <input
+              name="price"
+              onChange={handleChange}
+              className="border xxl:mx-2 focus:outline-none px-4 py-1 shadow-md"
+              type="number"
+              placeholder="Book Price in $"
+            />
+          </div>
+          <div className="flex   flex-col xxl:flex-row gap-4">
+            <input
+              name="rating"
+              onChange={handleChange}
+              max={5}
+              className="border xxl:mx-2 focus:outline-none px-4 py-1 shadow-md"
+              type="number"
+              placeholder="Book Rating"
+            />
+            <div className="flex gap-4 flex-col xs:flex-row items-start xs:items-center">
+              <label htmlFor="publishedDate">Published Date : </label>
+              <input
+                name="publishedDate"
+                onChange={handleChange}
+                className="border focus:outline-none px-4 py-1 shadow-md"
+                id="publishedDate"
+                type="date"
+                placeholder="Published Date"
+              />
+            </div>
           </div>
         </div>
         <div className="flex   justify-between"></div>

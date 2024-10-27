@@ -8,14 +8,9 @@ const BookDetail = () => {
   const booksData = useSelector((store) => store.book.items);
   const params = useParams();
   const currentBook = booksData.filter((item) => item.id == params.id)[0];
-  // const [currentBook, setCurrentBook] = useState(
-  //   booksData.filter((item) => item.id == params.id)[0] || []
-  // );
-
-  console.log("params is ", params);
-  console.log("cBook is ", currentBook);
+ 
   return (
-    <div className="px-8 py-4">
+    <div className="px-3 xs:px-8  py-4">
       <Link
         to={`/browseBooks`}
         className="border flex gap-2 items-center w-[12rem] my-2 rounded-full shadow-md px-4 py-[3px] cursor-pointer"
@@ -26,12 +21,12 @@ const BookDetail = () => {
 
       {currentBook ? (
         <>
-          <h2 className="font-bold text-xl py-4">
+          <h2 className=" font-bold text-xl py-4">
             {" "}
             Book <span className="text-red-500">Details</span>
           </h2>
 
-          <div className="bookCard w-[50rem] break-words border-2 border-slate-100 shadow-lg  p-6 px-10 flex gap-10">
+          <div className="bookCard flex-col sm:flex-row sm:w-[38rem] lg:w-[50rem] break-words border-2 border-slate-100 shadow-lg   py-6 px-4 sm:px-10 flex gap-10">
             <img
               src={currentBook?.coverImage}
               className="w-[15rem] h-[20rem] object-cover  "

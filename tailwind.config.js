@@ -6,6 +6,11 @@ export default {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: "350px",
+        ms: "400px",
+        xxl: "1500px"
+      },
       fontFamily: {
         cfont: ["Josefin Sans", "sans-serif"]
       }
